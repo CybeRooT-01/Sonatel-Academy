@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+	box-sizing: border-box;
+}
+.copied{
+	color : rgb(147, 11, 181);
+	font-weight: bold;
+}
+.notif{
+	visibility: hidden;
+	position: fixed;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    z-index: 100;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5em;
+    animation: notif_qui_bouge_du_bas 10s;
+    border: 3px solid black;
+    margin-right: 1em;
+    transition: all 1s ease;
+	margin-bottom: 1em;
+}
+.copier{
+	position: relative;
+	font-size: 1rem;
+	border-radius: 5px;
+	left: 15.7em;
+	height: 50%;
+	width: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.5);
+	visibility: hidden;
+}
+.clipboard{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	font-size: 1.5em;
+	visibility: hidden;
+}
+body {
+	background-color: rgb(62, 2, 77);
+	color: #fff;
+	display: flex;
+	font-family: 'poppins', sans-serif;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+p {
+	margin: 5px 0;
+}
+
+h2 {
+	margin: 10px 0 20px;
+	text-align: center;
+}
+
+input[type='checkbox'] {
+	margin-right: 0;
+}
+
+.container {
+	background-color: #072a3a;
+	border-radius: 10px;
+    border: 5px solid rgb(147, 11, 181);
+	padding: 20px;
+	width: 350px;
+	max-width: 100%;
+}
+
+.result-container {
+	background-color:  rgb(147, 11, 181);;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	font-size: 18px;
+	letter-spacing: 1px;
+	padding: 12px 10px;
+	height: 50px;
+	width: 100%;
+}
+
+.result-container #result {
+	word-wrap: break-word;
+	max-width: calc(100% - 40px);
+}
+
+.result-container .btn {
+	font-size: 20px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 40px;
+	width: 40px;
+}
+
+.btn {
+	border: none;
+	color:  rgb(147, 11, 181);
+    font-weight: bold;
+	cursor: pointer;
+	font-size: 1.3rem;
+	padding: 8px 12px;
+	background-color: #b1bc19;
+    width: 100%;
+}
+
+.setting {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px 0;
+}
