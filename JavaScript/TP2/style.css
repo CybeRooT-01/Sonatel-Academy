@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+.paragraphe {
+    font-size: 2.5rem;
+    color: white;
+    margin: 2rem;
+    
+}
+.container{
+    background-color: gray;
+    display: grid;
+    grid-template-columns: 1fr 0.75fr 1fr;
+}
+.corps1,.corps3{
+    background-color: brown;
+}
+.corps2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.button1,.button2{
+    border: solid 1px;
+    padding: 7%;
+    margin: 4px 0px;
+    cursor: pointer;
+    background-color: gray;
+}
+.paragraphe_hover{
+    background-color: blue;
+}

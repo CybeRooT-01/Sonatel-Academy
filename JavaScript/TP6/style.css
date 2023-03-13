@@ -1,0 +1,26 @@
+.container {
+    background-image: url("img/background.jpg");
+    height: 30em;
+    background-repeat: no-repeat;
+    background-size: 90em 40em;
+    margin-left: 5em;
+    margin-top: 2em;
+    color: white;
+    font-family: monospace;
+}
+.header{
+    text-align: center;
+    font-size: 4rem;
+}
+.rebour_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.rebours_jours, .rebours_heures, .rebours_minutes ,.rebours_secondes{
+    margin: 2rem;
+}
+.heures, .minutes, .secondes{
+    margin-left: 1em;
+}

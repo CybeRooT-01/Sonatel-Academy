@@ -1,0 +1,49 @@
+#password-generator {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+h1 {
+	font-size: 36px;
+}
+label {
+	margin-right: 20px;
+}
+/* .error {
+	color: red;
+	font-weight: bold;
+	font-size: 2em;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 1em;
+	height: 3em;
+	padding: 0.5em;
+	display: flex;
+	align-items: center;
+	animation: notif 5s ;
+} */
+#password {
+	margin-top: 20px;
+	width: 100%;
+	font-size: 24px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+#copy-password {
+	margin-left: 10px;
+}
+/*  la classe .error se met en background rouge et bas et a droite et disparait au bout de 5s */
+.error {
+	font-weight: bold;
+	font-size: 2em;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 1em;
+	height: 3em;
+	padding: 0.5em;
+	display: flex;
+	align-items: center;
+}
