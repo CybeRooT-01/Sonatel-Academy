@@ -1,0 +1,90 @@
+Requetes:
+1-Afficher les catégories de confection
+    SELECT libelle FROM categori_article;
+2-Afficher le libellé et prix des articles de confection
+    SELECT libelle, prix from article_confection JOIN categori_article ON article_confection.id_article_confection = categori_article.id_categori_article;
+3-Afficher les fournisseurs
+    SELECT nom, prenom,tel, photo,addresse from fournisseur JOIN personne ON fournisseur.id_fournisseur = personne.id_personne;
+4-Afficher le libellé,le prix et la qte des articles de confection dont le prix est supérieur à 12000
+    SELECT libelle, prix from article_confection JOIN categori_article ON article_confection.id_article_confection = categori_article.id_categori_article WHERE prix > 12000;
+5- Afficher les fournisseurs dont l’adresse contient ‘Thies’
+    SELECT nom, prenom,tel, photo,addresse from fournisseur JOIN personne ON fournisseur.id_fournisseur = personne.id_personne WHERE addresse LIKE '%thies%';
+6-Afficher les fournisseurs qui ont un numéro orange
+    SELECT nom, prenom,tel, photo,addresse from fournisseur JOIN personne ON fournisseur.id_fournisseur = personne.id_personne WHERE tel LIKE '77%' OR tel LIKE '78%';
+7-Afficher le libellé,le prix et la qte des articles de confection dont la catégorie est ‘Tissu’
+    SELECT libelle, prix,quantite_achat from article_confection JOIN categori_article ON article_confection.id_article_confection = categori_article.id_categori_article WHERE libelle LIKE '%tissus%';
+8-Afficher le libellé,le prix, le montant des Articles de confection qui n’ont pas de photo
+    SELECT libelle, prix, montant_en_stock from article_confection JOIN categori_article ON article_confection.id_article_confection = categori_article.id_categori_article WHERE photo IS NULL;
+9-Afficher le libellé et catégorie des articles de confection de catégorie ‘Tissu’ dont la quantite en stock est supérieur à 10
+    SELECT libelle, prix, montant_en_stock from article_confection JOIN categori_article ON article_confection.id_article_confection = categori_article.id_categori_article WHERE libelle LIKE '%tissus%' AND montant_en_stock > 10;
+10-Afficher le libellé et catégorie des articles de confection livres par le fournisseur ‘Ibrahima Diop’
+    SELECT libelle, categorie from approvisionnement_article 
+    JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article 
+    JOIN fournisseur ON approvisionnement_article.id_fournisseur = fournisseur.id_fournisseur 
+    JOIN personne ON fournisseur.id_personne = personne.id_personne WHERE nom = "Diop" AND prenom = "ibrahima" ;
+11-Afficher les catégorie des articles de confection livres par le fournisseur ‘Ibrahima Diop’
+    SELECT  categorie from approvisionnement_article 
+    JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article 
+    JOIN fournisseur ON approvisionnement_article.id_fournisseur = fournisseur.id_fournisseur 
+    JOIN personne ON fournisseur.id_personne = personne.id_personne WHERE nom = "Diop" AND prenom = "ibrahima" ;
+12-Afficher les Fournisseurs qui n’ont jamais livres de produits
+    SELECT nom, prenom,tel, photo,addresse from fournisseur JOIN personne ON fournisseur.id_fournisseur = personne.id_personne WHERE id_fournisseur NOT IN (SELECT id_fournisseur from approvisionnement_article);
+13-Afficher les Fournisseurs qui ne livrent que des tissus
+    SELECT nom, prenom,tel, photo,addresse from fournisseur JOIN personne ON fournisseur.id_fournisseur = personne.id_personne WHERE id_fournisseur IN (SELECT id_fournisseur from approvisionnement_article JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article WHERE libelle LIKE '%tissus%');
+14-Afficher les fournisseurs et les articles livrés le ‘Samedi 28 janvier 2023’
+    SELECT nom, prenom,tel, photo,addresse from fournisseur JOIN personne ON fournisseur.id_fournisseur = personne.id_personne WHERE id_fournisseur IN (SELECT id_fournisseur from approvisionnement_article JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article WHERE date = '2023-01-28');
+15-Afficher tous les Responsables Stock par croissant de leur nom
+    SELECT nom, prenom,tel, photo,addresse from responsable_stock JOIN personne ON responsable_stock.id_res_stock = personne.id_personne ORDER BY nom ASC;
+16-Afficher tous Responsables Stock dont le salaire est supérieur à 100000
+    SELECT nom, prenom,tel, photo,addresse from responsable_stock JOIN personne ON responsable_stock.id_res_stock = personne.id_personne JOIN employe ON employe.id_employe = personne.id_personne WHERE salaire > 100000;
+17-Afficher le nombre d'approvisionnement effectués par ‘Matar’ ‘Diop’
+    SELECT COUNT(*) from approvisionnement_article JOIN fournisseur ON approvisionnement_article.id_fournisseur = fournisseur.id_fournisseur JOIN personne ON fournisseur.id_personne = personne.id_personne WHERE nom = 'Diop' AND prenom = 'Matar';
+18-Afficher les fournisseurs ainsi que le nombre d’approvisionnements effectué durant le mois de Janvier
+    SELECT nom, prenom,tel, photo,addresse, COUNT(*) from approvisionnement_article JOIN fournisseur ON approvisionnement_article.id_fournisseur = fournisseur.id_fournisseur JOIN personne ON fournisseur.id_personne = personne.id_personne WHERE date LIKE '%-01-%'  GROUP BY nom, prenom,tel, photo,addresse;
+19-Afficher tous les Responsables Stock qui ont fait des approvisionnements de 'aiguille’
+    SELECT nom, prenom,tel,addresse from responsable_stock JOIN personne ON responsable_stock.id_res_stock = personne.id_personne JOIN employe ON employe.id_employe = personne.id_personne JOIN approvisionnement_article ON approvisionnement_article.id_res_stock = employe.id_employe JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article WHERE libelle LIKE '%aiguille%';
+20-Afficher tous les Responsables Stock qui ont fait que des approvisionnements de 'aiguille’
+    SELECT nom, prenom,tel,addresse from responsable_stock JOIN personne ON responsable_stock.id_res_stock = personne.id_personne JOIN employe ON employe.id_employe = personne.id_personne JOIN approvisionnement_article ON approvisionnement_article.id_res_stock = employe.id_employe JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article WHERE libelle LIKE '%aiguille%' GROUP BY nom, prenom,tel,addresse;
+21-Afficher le montant moyen des approvisionnements par articles effectués durant le mois de Janvier
+    SELECT AVG(montant) from approvisionnement_article WHERE date LIKE '%-01-%';
+22-Afficher le montant moyen des approvisionnements par Catégorie effectués durant le mois de Janvier
+    SELECT AVG(montant) from approvisionnement_article JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article WHERE date LIKE '%-01-%';
+23-Afficher les articles les plus approvisionnés durant le mois de Janvier
+    SELECT libelle, COUNT(*) from approvisionnement_article JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article WHERE date LIKE '%-01-%' GROUP BY libelle ORDER BY COUNT(*) DESC;
+24-Afficher les articles de catégorie ‘Tissus’ les moins approvisionnés durant le mois de Janvier
+    SELECT libelle, COUNT(*) from approvisionnement_article JOIN categori_article ON approvisionnement_article.id_approvisionnement_article = categori_article.id_categori_article WHERE date LIKE '%-01-%' AND libelle LIKE '%tissus%' GROUP BY libelle ORDER BY COUNT(*) ASC;
+25Afficher le nombre approvisionnements fait par responsable de stock durant le mois Janvier.Cette liste est triée par ordre croissant du nombre approvisionnements
+    SELECT nom, prenom, COUNT(*) from approvisionnement_article JOIN employe ON approvisionnement_article.id_res_stock = employe.id_employe JOIN personne ON employe.id_employe = personne.id_personne WHERE date LIKE '%-01-%' GROUP BY nom, prenom ORDER BY COUNT(*) ASC;
+26-Afficher tous les Vendeurs
+    SELECT nom, prenom,tel, photo,addresse from vendeur JOIN employe ON vendeur.id_vendeur = employe.id_employe JOIN personne ON vendeur.id_vendeur = personne.id_personne;
+
+=========La 2e partie avec les aa, bb cc etc================
+
+1-Afficher le libellé et catégorie des articles de Vente
+    SELECT libelle, categorie from article_vente JOIN categori_article ON article_vente.id_article_vente = categori_article.id_categori_article;
+2-Afficher le libellé,la qte stock et le prix des articles de
+Vente dont la catégorie n’est ni ‘Costume’ ,ni ‘Costume
+Africain’
+    SELECT libelle, montant_vente, prix_vente from article_vente JOIN categori_article ON article_vente.id_article_vente = categori_article.id_categori_article WHERE categorie NOT LIKE '%costume%' AND categorie NOT LIKE '%costume africain%';
+3-Afficher le libellé,la qte stock et le prix des articles de
+Vente de la catégorie est ‘Costume’ ou ‘Costume Africain’
+    SELECT libelle, montant_vente, prix_vente from article_vente JOIN categori_article ON article_vente.id_article_vente = categori_article.id_categori_article WHERE categorie LIKE '%costume%' OR categorie LIKE '%costume africain%';
+4-Afficher le libellé,la qte stock , le prix , la quantité produite
+et montant de vente des article de vente
+    SELECT libelle, montant_vente, prix_vente, quantite_stock, montant_vente from article_vente JOIN categori_article ON article_vente.id_article_vente = categori_article.id_categori_article;
+5-Afficher le libellé,la qte stock , le prix , des article de
+vente jamais produites
+    SELECT libelle, montant_vente, prix_vente from article_vente JOIN categori_article ON article_vente.id_article_vente = categori_article.id_categori_article WHERE id_article_vente NOT IN (SELECT id_article_vente from article_vente JOIN categori_article ON article_vente.id_article_vente = categori_article.id_categori_article WHERE categori_article.categorie = 'Categorie 1');
+6-Afficher tous les Responsables de production
+    SELECT nom, prenom,tel, photo,addresse from responsable_prod JOIN employe ON responsable_prod.id_res_prod = employe.id_employe JOIN personne ON responsable_prod.id_res_prod = personne.id_personne;
+7-Afficher tous les utilisateurs dont le nom est ‘Diop’
+    SELECT * FROM personne WHERE nom = 'diop';
+8-Afficher tous les utilisateurs dont le nom contient ‘Diop’
+    SELECT * FROM personne WHERE nom LIKE '%diop%';
+9-Afficher les client qui habite ‘thies’
+    SELECT * FROM client JOIN personne ON client.id_client = personne.id_personne WHERE addresse LIKE '%thies%';
+10-Afficher les client qui ont des numéros oranges
+    SELECT * FROM client JOIN personne ON client.id_client = personne.id_personne WHERE tel LIKE '77%' OR tel LIKE '78%';
+11-Afficher les fournisseurs de ‘Dakar’
+    SELECT * FROM fournisseur JOIN personne ON fournisseur.id_fournisseur = personne.id_personne WHERE addresse LIKE '%dakar%';
+
