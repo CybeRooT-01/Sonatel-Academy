@@ -1,0 +1,199 @@
+Nom: Se connecter
+Description: Permet à un utilisateur de se connecter à son compte.
+
+Acteurs: Utilisateur (Apprenant/Admin)
+Précondition: Avoir un compte utilisateur.
+Événement déclencheur: L'utilisateur décide de se connecter à son compte.
+
+Scénario nominal de conception:
+
+L'utilisateur accède à la page de connexion.
+L'utilisateur saisit son numero
+Le système vérifie que le numero est valide
+Si le numro est valide, le système envoie un message a lutilisateur et linvite a rentrer le code de connexion et si le code est valide il le redirige a la page d'acceuil
+Si le code de connexion est invalides, le système affiche un message d'erreur indiquant que les informations de connexion sont incorrectes et invite l'utilisateur à réessayer.
+========================================================================================
+Nom: Choix du repas
+Description: Permet à l'apprenant de choisir un repas pour le déjeuner à partir d'un menu donné.
+
+Acteurs: Apprenant
+Précondition: Avoir accès au menu des repas
+Événement déclencheur: Le moment du déjeuner approche.
+
+Scénario nominal de conception:
+
+Le système affiche le menu des repas pour le déjeuner.
+L'apprenant sélectionne un plat.
+Le système vérifie la disponibilité du plat choisi.
+3a. Si le plat n'est pas disponible, le système affiche un message d'erreur à l'apprenant.
+L'apprenant peut ajouter des suppléments à son plat s'il le souhaite.
+L'apprenant valide sa commande.
+Le système enregistre la commande et confirme la prise en compte de la commande à l'apprenant.
+L'apprenant peut répéter le processus pour commander un autre plat.
+L'apprenant quitte la page de commande lorsque toutes ses commandes ont été passées.
+
+==============================================================================
+Nom: Modification du menu
+Description: Permet à l'administrateur de modifier le menu des repas en ajoutant ou supprimant des plats.
+
+Acteurs: Administrateur
+Précondition: Être connecté en tant qu'administrateur, avoir accès à la liste des plats.
+Événement déclencheur: Décision de l'administrateur de modifier le menu.
+
+Scénario nominal de conception:
+
+Le système affiche la liste des plats actuellement disponibles dans le menu.
+L'administrateur peut choisir d'ajouter ou de supprimer un plat.
+Si l'administrateur souhaite ajouter un plat:
+3a. L'administrateur saisit les informations du nouveau plat (nom, description, etc.).
+3b. Le système vérifie que les informations saisies sont valides.
+3b.1. Si les informations ne sont pas valides, le système affiche un message d'erreur et invite l'administrateur à saisir à nouveau les informations.
+3c. Le système ajoute le nouveau plat à la liste des plats disponibles.
+Si l'administrateur souhaite supprimer un plat:
+4a. L'administrateur sélectionne le plat à supprimer.
+4b. Le système vérifie que le plat sélectionné existe bien dans la liste des plats.
+4b.1. Si le plat n'existe pas dans la liste, le système affiche un message d'erreur et invite l'administrateur à sélectionner à nouveau le plat à supprimer.
+4c. Le système supprime le plat sélectionné de la liste des plats disponibles.
+Le système enregistre les modifications apportées au menu.
+L'administrateur peut quitter la page de modification du menu.
+
+=============================================================================
+
+Nom: Création d'un compte apprenant
+Description: Permet à l'administrateur de créer un compte apprenant.
+
+Acteurs: Administrateur
+Précondition: Être connecté en tant qu'administrateur, avoir accès au formulaire de création de compte apprenant.
+Événement déclencheur: Décision de l'administrateur de créer un compte apprenant.
+
+Scénario nominal de conception:
+
+Le système affiche le formulaire de création de compte apprenant.
+L'administrateur saisit les informations personnelles de l'apprenant (nom, prénom, referentiel, promo et numero de telephone).
+Le système vérifie que les informations saisies sont valides.
+3a. Si les informations ne sont pas valides, le système affiche un message d'erreur et invite l'administrateur à saisir à nouveau les informations.
+Le système vérifie que les informations de connexion sont valides.
+L'administrateur peut ajouter des informations supplémentaires sur l'apprenant si nécessaire.
+Le système enregistre les informations du nouvel apprenant dans la base de données.
+Le système envoie un email de confirmation de création de compte à l'apprenant.
+L'administrateur peut créer un autre compte apprenant en répétant le processus.
+L'administrateur peut quitter la page de création de compte apprenant.
+
+=======================================================================================
+Nom: Modification des informations de profil de l'apprenant
+Description: Permet à l'administrateur de modifier les informations personnelles et de connexion d'un apprenant.
+
+Acteurs: Administrateur, Apprenant
+Précondition: Être connecté en tant qu'administrateur, avoir accès aux informations de profil de l'apprenant.
+Événement déclencheur: Décision de l'administrateur de modifier les informations de profil de l'apprenant.
+
+Scénario nominal de conception:
+
+Le système affiche les informations de profil de l'apprenant.
+L'administrateur peut modifier les informations personnelles de l'apprenant (nom, prénom, adresse email, etc.).
+Le système vérifie que les informations saisies sont valides.
+3a. Si les informations ne sont pas valides, le système affiche un message d'erreur et invite l'administrateur à saisir à nouveau les informations.
+L'administrateur peut modifier les informations de connexion de l'apprenant (identifiant, mot de passe).
+Le système vérifie que les informations de connexion sont valides.
+5a. Si les informations ne sont pas valides, le système affiche un message d'erreur et invite l'administrateur à saisir à nouveau les informations de connexion.
+L'administrateur peut ajouter des informations supplémentaires sur l'apprenant si nécessaire.
+Le système enregistre les modifications apportées aux informations de profil de l'apprenant dans la base de données.
+Le système envoie un email de confirmation de modification de profil à l'apprenant.
+L'administrateur peut quitter la page de modification des informations de profil de l'apprenant.
+
+====================================================================================================
+
+Nom: Suppression d'un apprenant
+Description: Permet à l'administrateur de supprimer un compte apprenant.
+
+Acteurs: Administrateur
+Précondition: Être connecté en tant qu'administrateur, avoir accès à la liste des comptes apprenants.
+Événement déclencheur: Décision de l'administrateur de supprimer un compte apprenant.
+
+Scénario nominal de conception:
+
+Le système affiche la liste des comptes apprenants.
+L'administrateur sélectionne le compte apprenant à supprimer.
+Le système affiche une confirmation de suppression de compte apprenant.
+L'administrateur confirme la suppression.
+Le système supprime le compte apprenant de la base de données.
+Le système envoie un email de confirmation de suppression de compte apprenant à l'apprenant concerné.
+Le système affiche un message de confirmation de suppression de compte apprenant.
+L'administrateur peut quitter la page de suppression de compte apprenant.
+
+===================================================================================
+
+Nom: Passer une commande pour le lendemain en tant qu'apprenant
+Description: Permet à l'apprenant de passer une commande pour le lendemain.
+
+Acteurs: Apprenant
+Précondition: Être connecté en tant qu'apprenant, avoir accès au menu et à la possibilité de commander pour le lendemain.
+Événement déclencheur: Décision de l'apprenant de passer une commande pour le lendemain.
+
+Scénario nominal de conception:
+
+Le système affiche le menu du jour ainsi que la possibilité de commander pour le lendemain.
+L'apprenant sélectionne les plats qu'il souhaite commander pour le lendemain.
+Le système affiche un récapitulatif de la commande.
+L'apprenant peut modifier la commande si nécessaire.
+4a. Si l'apprenant souhaite modifier sa commande, il peut cliquer sur le bouton "Modifier la commande".
+4b. Le système permet à l'apprenant de modifier sa commande.
+L'apprenant valide sa commande.
+Le système enregistre la commande dans la base de données.
+Le système envoie un email de confirmation de commande à l'apprenant.
+L'apprenant peut quitter la page de commande pour le lendemain.
+
+=========================================================================================
+
+Nom: Afficher la liste des commandes en cours en tant qu'admin
+Description: Permet à l'administrateur de voir la liste des commandes en cours passées par les apprenants.
+
+Acteurs: Administrateur
+Précondition: Être connecté en tant qu'administrateur.
+Événement déclencheur: Décision de l'administrateur de vouloir voir la liste des commandes en cours.
+
+Scénario nominal de conception:
+
+Le système affiche la liste des commandes en cours.
+L'administrateur peut voir les détails de chaque commande, tels que les plats commandés, la date de la commande, le nom de l'apprenant, etc.
+L'administrateur peut mettre à jour le statut de chaque commande en fonction de son état actuel.
+3a. Si la commande a été préparée, l'administrateur peut la marquer comme prête à être livrée.
+3b. Si la commande a été livrée, l'administrateur peut la marquer comme livrée.
+L'administrateur peut quitter la page de liste des commandes en cours.
+
+===============================================================================================
+Nom: Générer un QR code en tant qu'admin
+Description: Permet à l'administrateur de générer un code QR pour les plats à livrer.
+
+Acteurs: Administrateur
+Précondition: Être connecté en tant qu'administrateur.
+Événement déclencheur: Décision de l'administrateur de générer un code QR pour un plat à livrer.
+
+Scénario nominal de conception:
+
+L'administrateur sélectionne le plat à livrer pour lequel il souhaite générer un code QR.
+Le système génère un code QR unique pour le plat sélectionné.
+L'administrateur peut imprimer le code QR ou l'envoyer par e-mail au livreur.
+L'administrateur peut quitter la page de génération de code QR.
+================================================================================
+
+Nom: Contrôler une commande en tant que Alain
+Description: Permet à Alain, le contrôleur, de valider les commandes en vérifiant l'image de l'apprenant et en scannant le QR code de la commande.
+
+Acteurs: Alain (Contrôleur)
+Précondition: Être connecté en tant que contrôleur.
+Événement déclencheur: Décision d'Alain de contrôler les commandes.
+
+Scénario nominal de conception:
+
+Alain se met devant la porte pour récupérer les tickets contenant le QR code de chaque commande.
+Pour chaque commande, Alain scanne le QR code avec un scanner de code QR.
+Le système vérifie si la commande est une commande valide.
+Le système affiche l'image de l'apprenant ayant passé la commande et son nom.
+Alain compare l'image de l'apprenant avec la personne présentant le ticket pour vérifier si elles correspondent.
+Si l'image de l'apprenant correspond à la personne présentant le ticket, Alain valide la commande.
+Alain remet le repas commandé à l'apprenant.
+Alain répète le processus pour chaque commande.
+Alain termine le contrôle des commandes et quitte la page.
+
+=========================================================================================

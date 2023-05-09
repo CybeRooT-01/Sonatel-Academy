@@ -1,0 +1,71 @@
+diagramm de conext, de package, de sequence (dans un fichier doc)
+on fait les wireframe
+
+Besoin: gestion de repas
+
+une apllication qui eprmetv de dire ce qu'il choisira le lendemain... si tu fais ton choix (evidement sur les menus proposés), t'aura un ticket et quand tu va choper ton repas tu ramene le ticket et ce ticket il va le scanner et automatiquement il saura quelle repas t'avais choisi et il va te donner.
+
+-possiblité de reconnaitre un apprennant (sa promo, sa referentiel) un etudiant dont sa promo est expiré ne porra pas commander... vu que sa promo est finitoo !
+
+-Les admins peuvent rentrer les menus pour que les etudiants fassent leurs choix.
+
+-partie admin: application web
+-partie etudiant: app mobile
+
+-Alain (app mobile): Identifie l'apprenant... si il sanne le code qr, on doit luia afficher l'etudiant (sa photo, son repas etc...) et valide pour pas que le mec vien et reviens. Donc alain scanne , visualise, et valide le choix
+
+=============
+si le menu du lundi est la meme que pour mardi, beh on va juste reprogrammer le menu
+
+WIREFRAME, MAQUETTE, PROTOTYPE
+
+===============pacakges============
+
+1. Package "Gestion des menus" : Ce package comprendrait toutes les fonctionnalités liées à la gestion des menus, notamment l'ajout et la suppression de menus, la mise à jour des informations de menus, etc.
+
+2. Package "Gestion des utilisateurs" : Ce package comprendrait toutes les fonctionnalités liées à la gestion des utilisateurs, notamment l'inscription, la validation, la suppression, etc. Ce package comprendrait également la fonctionnalité de reconnaissance des apprenants, ainsi que l'application mobile destinée aux étudiants.
+
+3. Package "Gestion des commandes" : Ce package comprendrait toutes les fonctionnalités liées à la gestion des commandes, notamment le processus de commande, la validation, la modification et la suppression des commandes.
+
+Il convient de noter que cette structure est une suggestion et peut être modifiée en fonction de vos propres besoins et de la façon dont vous souhaitez organiser votre système. J'espère que cela vous aidera dans votre travail avec UML !
+
+===========usercases====================
+
+1. Package "Gestion des menus" :
+- Ajouter un nouveau menu
+- Modifier un menu existant
+- Supprimer un menu existant
+- Afficher la liste des menus disponibles
+- Rechercher un menu par nom, prix ou ingrédient
+- Vérifier la disponibilité d'un menu à une date donnée
+
+2. Package "Gestion des utilisateurs":
+- Inscription d'un nouvel utilisateur
+- Connexion à l'application
+- Modification des informations de profil de l'utilisateur
+- Récupération du mot de passe
+- Suppression du compte utilisateur
+- Affichage de l'historique des commandes d'un utilisateur
+
+3. Package "Gestion des commandes" :
+- Passer une commande pour le lendemain
+- Annuler une commande
+- Voir les détails d'une commande
+- Afficher la liste des commandes en cours
+- generer des QRcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

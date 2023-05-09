@@ -1,0 +1,33 @@
+1. synthese aujourd'hui
+2. documentation modele logique de données
+	définition
+	regles transformation diagramme de classe en mld
+
+	--------------
+	| Projet Troc |
+	---------------
+Créer compte
+publier un bien
+faire un troc avec un bien publié
+envoyer un message au détenteur du bien pour l'informer
+possibilité de faire un troc avec de l'argent ou avec un autre bien
+plusieurs demandes peuvent exister
+choisir le bien 
+l'utilisateur peut voir les biens qu'il a publiés et ceux qui sont en cours de trocs et ceux qui ont déjà été troqués.
+l'utilisateur peut aussi voir la liste des biens qu'il est en train de suivre (cours de troc)
+[fil de discussion]
+
+TAF : tous jusqu'à diagramme de classe et MLD, maquettes
+
+system de chat. 
+system de signalement
+
+un user peut decider d'nvoyer un autre user dans l'application web
+un user peut signaler un autre user  un autre user qui a poster un annonce que l'admin verra et ensuite pourra decider si il va le bannir ou pas 
+
+
+Package "Utilisateurs" : contenant les classes et les fonctionnalités liées aux utilisateurs, telles que la création de compte, la connexion, la recherche d'utilisateurs, l'envoi de messages entre utilisateurs, la notification de signalements et de bannissements.
+
+Package "Annonces" : contenant les classes et les fonctionnalités liées à la publication et à la recherche d'annonces, telles que la création d'annonces, la recherche d'annonces, la gestion de l'état d'une annonce (en cours, vendue, annulée, etc.), ainsi que les interactions entre les utilisateurs et les annonces (envoi de messages, signalements).
+
+Package "Administration" : contenant les classes et les fonctionnalités liées à l'administration du site, telles que la gestion des signalements, la décision de bannir ou non un utilisateur, la suppression des annonces inappropriées, la modération des contenus, la gestion des statistiques du site, etc.
