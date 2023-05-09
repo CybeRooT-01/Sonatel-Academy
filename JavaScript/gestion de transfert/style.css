@@ -1,0 +1,53 @@
+.img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border-left: 5px solid ;
+    border-bottom: 5px solid;
+}
+.btn_container{
+    display: flex;
+    justify-content: space-around
+}
+table{
+    max-height: 10px;
+    overflow-y: scroll;
+}
+.eye{
+    cursor: pointer;
+}
+.modal_trans{
+    display: none;
+}
+body{
+    overflow: hidden;
+}
+.search_list{
+    list-style: none;
+    margin-top: 5px;
+    width: 60px;
+
+}
+.search_list:hover{
+    cursor: pointer;
+    background-color: #6077cb;
+    color: white;
+
+}
+.timer{
+    display: flex;
+    color: white;
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+
+}
+.annuler{
+    color: red;
+}

@@ -1,0 +1,142 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+
+.container{
+    width: 50%;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.info{
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3,h4{
+    margin: 10px;
+}
+.months{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    /* gap: 2rem; */
+}
+.month{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid green;
+    width: 23%;
+    height: 100px;
+    margin: 10px 0;
+    position: relative;
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+.plus{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 1px solid;
+    width:20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-weight: 900;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.month:hover .plus{
+    visibility: visible;
+}
+
+.modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.modal-content{
+    background-color: white;
+    width: 600px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+#save, #close{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+#save{
+    background-color: green;
+    
+}
+#close{
+    background-color: red;
+}
+.closeModal{
+    background-color: red;
+    color: white;
+    font-weight: 900;
+    padding: 5px 10px;
+    border-radius: 10%;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+#mnt{
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.modal.close{
+    visibility: visible;
+}
+
+select{
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.month:hover{
+    transform: scale(1.1);
+}

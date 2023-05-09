@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TP integration API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Application de film</h1>
+      </div>
+      <div>
+        <label for="Langue">Langue</label>
+        <select name="" id="Langue">
+          <option value="fr">Français</option>
+          <option value="En-us">anglais</option>
+          <option value="ar">arabe</option>
+          <option value="es">espagnol</option>
+          <option value="de">allemand</option>
+          <option value="cn">chinois</option>
+          <option value="it">italien</option>
+        </select>
+      </div>
+      <div>
+        <label for="categories">categories</label>
+        <select name="" id="" class="categories">
+
+        </select>
+      </div>
+      <div>
+        <form id="search-form">
+          <label for="search-term">Rechercher un film :</label>
+          <input type="text" id="search-term"  placeholder="Recherchez un film"/> 
+          <i class="fa-solid fa-xmark delete"></i>
+          <button type="submit" class="button">Rechercher</button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <div id="movie-container">
+          
+      </div>
+      <div id="loading-message">
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
